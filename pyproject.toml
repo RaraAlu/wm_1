@@ -1,0 +1,37 @@
+[project]
+name = "wm-1"
+version = "0.1.0"
+description = "LeWorldModel — Stable End-to-End JEPA from Pixels"
+requires-python = "==3.10.*"
+dependencies = [
+    # core
+    "torch",
+    "torchvision",
+    "torchaudio",
+    # world-model framework — pinned to GitHub to avoid PyPI gym==0.21 issue
+    "stable-worldmodel[train,env]",
+    "stable-pretraining",
+    # model
+    "einops",
+    # eval
+    "numpy",
+    "scikit-learn",
+]
+
+[tool.uv]
+# This is a scripts project, not an installable package.
+package = false
+
+[tool.uv.sources]
+# Use GitHub HEAD so we get the clean gymnasium deps, not the old PyPI release
+stable-worldmodel  = { git = "https://github.com/galilai-group/stable-worldmodel.git" }
+stable-pretraining = { git = "https://github.com/galilai-group/stable-pretraining.git" }
+# Pull torch / torchvision / torchaudio from the CUDA 12.8 index
+torch       = { index = "pytorch-cu128" }
+torchvision = { index = "pytorch-cu128" }
+torchaudio  = { index = "pytorch-cu128" }
+
+[[tool.uv.index]]
+name     = "pytorch-cu128"
+url      = "https://download.pytorch.org/whl/cu128"
+explicit = true
