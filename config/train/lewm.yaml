@@ -7,6 +7,7 @@ defaults:
 output_model_name: lewm
 subdir: ${hydra:job.id}
 
+data_dir: /c/Users/zhang/Documents/Learn/wm_1/dates
 num_workers: 6
 train_split: 0.9
 seed: 3072
