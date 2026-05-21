@@ -27,14 +27,14 @@ package = false
 
 [tool.uv.sources]
 # Use GitHub HEAD so we get the clean gymnasium deps, not the old PyPI release
-stable-worldmodel  = { git = "https://github.com/galilai-group/stable-worldmodel.git" }
+stable-worldmodel = { git = "https://github.com/galilai-group/stable-worldmodel.git" }
 stable-pretraining = { git = "https://github.com/galilai-group/stable-pretraining.git" }
 # Pull torch / torchvision / torchaudio from the CUDA 12.8 index
-torch       = { index = "pytorch-cu128" }
+torch = { index = "pytorch-cu128" }
 torchvision = { index = "pytorch-cu128" }
-torchaudio  = { index = "pytorch-cu128" }
+torchaudio = { index = "pytorch-cu128" }
 
 [[tool.uv.index]]
-name     = "pytorch-cu128"
-url      = "https://download.pytorch.org/whl/cu128"
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
 explicit = true
