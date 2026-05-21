@@ -17,8 +17,10 @@ dependencies = [
     "numpy",
     "scikit-learn",
     # data / monitoring
+    "datasets>=3.0.0",
     "hdf5plugin",
     "pynvml",
+    "tensorboard>=2.20.0",
 ]
 
 [tool.uv]

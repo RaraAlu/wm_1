@@ -6,6 +6,8 @@ import hydra
 import lightning as pl
 import stable_pretraining as spt
 import stable_worldmodel as swm
+
+spt.set(cache_dir=os.path.join(os.path.dirname(__file__), "outputs"))
 import torch
 from lightning.pytorch.loggers import WandbLogger
 from omegaconf import OmegaConf, open_dict
@@ -112,6 +114,9 @@ def run(cfg):
     if cfg.wandb.enabled:
         logger = WandbLogger(**cfg.wandb.config)
         logger.log_hyperparams(OmegaConf.to_container(cfg))
+    else:
+        from lightning.pytorch.loggers import TensorBoardLogger
+        logger = TensorBoardLogger(save_dir=str(run_dir), name="tb_logs")
 
     run_dir.mkdir(parents=True, exist_ok=True)
     with open(run_dir / "config.yaml", "w") as f:
