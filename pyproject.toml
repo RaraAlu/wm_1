@@ -16,6 +16,9 @@ dependencies = [
     # eval
     "numpy",
     "scikit-learn",
+    # data / monitoring
+    "hdf5plugin",
+    "pynvml",
 ]
 
 [tool.uv]
